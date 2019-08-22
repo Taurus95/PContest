@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="/css/mycss.css">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Istok+Web&display=swap" rel="stylesheet">
 </head>
@@ -34,10 +35,10 @@
                 <ul class="navbar-nav mr-auto">
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('messages.login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('messages.register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('messages.register') }}</a>
                     </li>
                     @else
                     <li class="nav-item">
@@ -66,6 +67,7 @@
     @yield('content')
 
     <script src="/js/app.js" charset="utf-8"></script>
+    <script src="/js/jquery.fancybox.min.js" charset="utf-8"></script>
     <script src="/js/myjs.js" charset="utf-8"></script>
 </body>
 

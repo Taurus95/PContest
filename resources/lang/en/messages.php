@@ -9,7 +9,7 @@ return [
     |
     */
 
-    'welcome' => 'Welcome to the big Photo Contest',
+    'welcome' => 'Welcome to the big',
     'welcomeM' => 'Win amazin prices and be recognized for experts photographers',
     'enterNow' => 'Enter Now',
     'home' => 'Home',
@@ -17,6 +17,6 @@ return [
     'prices' => 'Prices',
     'gallery' => 'Gallery',
     'login' => 'Login',
-    'register' => 'Register'
+    'register' => 'Register',
 
 ];

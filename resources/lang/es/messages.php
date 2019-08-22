@@ -9,7 +9,7 @@ return [
     |
     */
 
-    'welcome' => 'Bienvenido al gran Photo Contest',
+    'welcome' => 'Bienvenido al gran',
     'welcomeM' => 'Gana increibles premios y se reconocido por grandes fotografos',
     'enterNow' => 'Ingresa Ahora',
     'home' => 'Inicio',

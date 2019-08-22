@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/', 'ViewsController@index')->name('index');
+    Route::get('login', 'ViewsController@login')->name('login');
+    Route::get('register', 'ViewsController@register')->name('register');
+
 });
