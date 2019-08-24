@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="/css/mycss.css">
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/slick-theme.css">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Istok+Web&display=swap" rel="stylesheet">
 </head>
 
@@ -66,9 +68,12 @@
 
     @yield('content')
 
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
     <script src="/js/jquery.fancybox.min.js" charset="utf-8"></script>
     <script src="/js/myjs.js" charset="utf-8"></script>
+    <script src="/js/slick.min.js" charset="utf-8"></script>
 </body>
 
 </html>
