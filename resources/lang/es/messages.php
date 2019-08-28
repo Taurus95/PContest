@@ -14,8 +14,9 @@ return [
     'enterNow' => 'Ingresa Ahora',
     'home' => 'Inicio',
     'about' => 'Acerca de',
-    'prices' => 'Premios',
+    'prizes' => 'Premios',
     'gallery' => 'Galeria',
     'login' => 'Ingresar',
     'register' => 'Registrarse',
+    'terms&conditions' => 'Terminos y condiciones'
 ];

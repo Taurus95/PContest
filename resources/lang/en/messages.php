@@ -14,9 +14,10 @@ return [
     'enterNow' => 'Enter Now',
     'home' => 'Home',
     'about' => 'About',
-    'prices' => 'Prices',
+    'prizes' => 'Prizes',
     'gallery' => 'Gallery',
     'login' => 'Login',
     'register' => 'Register',
+    'terms&conditions' => 'Terms & conditions',
 
 ];

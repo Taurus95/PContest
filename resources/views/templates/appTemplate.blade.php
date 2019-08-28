@@ -28,11 +28,15 @@
                         <a class="nav-link" href="#about">{{ __('messages.about') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#prices">{{ __('messages.prices') }}</a>
+                        <a class="nav-link" href="#prizes">{{ __('messages.prizes') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#terms">{{ __('messages.terms&conditions') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#entries">{{ __('messages.gallery') }}</a>
                     </li>
+
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     @guest
