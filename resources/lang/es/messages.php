@@ -18,5 +18,6 @@ return [
     'gallery' => 'Galeria',
     'login' => 'Ingresar',
     'register' => 'Registrarse',
-    'terms&conditions' => 'Terminos y condiciones'
+    'terms&conditions' => 'Terminos y condiciones',
+    'registerform' => 'Formulario de registro'
 ];

@@ -17,7 +17,7 @@
 <body>
     <header>
         <nav id="MainNav" class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent">
-            <a class="navbar-brand" href="#">Photo Contest</a>
+            <a class="navbar-brand" href="/#">Photo Contest</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">{{ __('messages.about') }}</a>
+                        <a class="nav-link" href="/#about">{{ __('messages.about') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#prizes">{{ __('messages.prizes') }}</a>
+                        <a class="nav-link" href="/#prizes">{{ __('messages.prizes') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#terms">{{ __('messages.terms&conditions') }}</a>
+                        <a class="nav-link" href="/#terms">{{ __('messages.terms&conditions') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#entries">{{ __('messages.gallery') }}</a>
+                        <a class="nav-link" href="/#entries">{{ __('messages.gallery') }}</a>
                     </li>
 
                 </ul>

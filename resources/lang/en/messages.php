@@ -19,5 +19,6 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'terms&conditions' => 'Terms & conditions',
+    'registerform' => 'Register Form'
 
 ];
