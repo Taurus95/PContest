@@ -19,6 +19,14 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'terms&conditions' => 'Terms & conditions',
-    'registerform' => 'Register Form'
+    'registerform' => 'Register Form',
+    'name' => 'Name',
+    'mail' => 'Mail',
+    'password' => 'Password',
+    'confirmPass' => 'Confirm Password',
+    'singIn' => 'Sing In',
+    'home' => 'My home',
+    'updateProfile' => 'Update my profile',
+    'logOut' => 'Log out'
 
 ];

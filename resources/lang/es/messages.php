@@ -19,5 +19,13 @@ return [
     'login' => 'Ingresar',
     'register' => 'Registrarse',
     'terms&conditions' => 'Terminos y condiciones',
-    'registerform' => 'Formulario de registro'
+    'registerform' => 'Formulario de registro',
+    'name' => 'Nombre',
+    'mail' => 'Correo',
+    'password' => 'Contraseña',
+    'confirmPass' => 'Confirma Contraseña',
+    'singIn' => 'Registrarse',
+    'home' => 'Mi panel',
+    'updateProfile' => 'Actualizar perfil',
+    'logOut' => 'Cerrar Sesion'
 ];
