@@ -41,7 +41,10 @@
                 <ul class="navbar-nav mr-auto">
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
+                        <a data-fancybox data-type="iframe" class="nav-link" href="javascript:;"
+                        data-src="{{ route('login') }}"  >
+                            {{ __('messages.login') }}
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('messages.register') }}</a>
