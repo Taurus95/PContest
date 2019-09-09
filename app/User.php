@@ -33,15 +33,6 @@ class User extends Authenticatable
 
      ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
     public function submissions(){
         return $this->hasMany('App\Submission','id_user');
     }

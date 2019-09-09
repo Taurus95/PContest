@@ -20,6 +20,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('dashboard', 'ViewsController@dashboard')->name('dashboard');
     //actions
     Route::post('register', 'MainController@registerNew')->name('registerNew');
+    Route::post('login', 'MainController@logIn')->name('login');
     Route::delete('logOut', 'MainController@logOut')->name('logOut');
 
 });

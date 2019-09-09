@@ -17,9 +17,8 @@ h1 {
 
 .fancybox-slide--iframe .fancybox-content {
     width  : 600px;
-    height : 300px;
     min-width: 300px;
-    min-height: 300px;
+    max-height: 380px;
     margin: 0;
 }
 

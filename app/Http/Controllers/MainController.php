@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class MainController extends Controller
@@ -26,11 +27,32 @@ class MainController extends Controller
         $user = new User;
         $user->email = $request->mail;
         $user->name = $request->name;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
         //authenticate the user for the sistem
         Auth::login($user);
 
+        return redirect()->route('index');
+    }
+
+    /**
+     * Login
+     */
+    public function logIn(Request $request)
+    {
+        $request->validate([
+            'email' => 'email|required',
+            'password' => 'required|string|max:50'
+        ]);
+        //retriving the user if it exist
+        $user = User::where('email', $request->email)->first();
+
+        if ($user != null && Hash::check($request->password, $user->password)) {
+            Auth::login($user);
+            return redirect()->route('index');
+        } else {
+            return redirect()->back()->withInput()->withErrors(["noValid" => "noValid","email" => "noValid", "password" => "noValid"]);
+        }
     }
 
     /**
@@ -40,5 +62,6 @@ class MainController extends Controller
     {
         Auth::logout();
         $request->session()->regenerate();
+        return redirect()->route('index');
     }
 }

@@ -27,6 +27,7 @@ return [
     'singIn' => 'Sing In',
     'home' => 'My home',
     'updateProfile' => 'Update my profile',
-    'logOut' => 'Log out'
+    'logOut' => 'Log out',
+    'errorLogin' => 'The data does not match with our source'
 
 ];

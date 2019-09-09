@@ -27,5 +27,6 @@ return [
     'singIn' => 'Registrarse',
     'home' => 'Mi panel',
     'updateProfile' => 'Actualizar perfil',
-    'logOut' => 'Cerrar Sesion'
+    'logOut' => 'Cerrar Sesion',
+    'errorLogin' => 'Error, los datos no coinciden con nuestros registros'
 ];
