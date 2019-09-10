@@ -32,7 +32,7 @@ class MainController extends Controller
         //authenticate the user for the sistem
         Auth::login($user);
 
-        return redirect()->route('index');
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -49,7 +49,7 @@ class MainController extends Controller
 
         if ($user != null && Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            return redirect()->route('index');
+            return redirect()->route('dashboard');
         } else {
             return redirect()->back()->withInput()->withErrors(["noValid" => "noValid","email" => "noValid", "password" => "noValid"]);
         }

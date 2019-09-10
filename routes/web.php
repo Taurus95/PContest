@@ -24,3 +24,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::delete('logOut', 'MainController@logOut')->name('logOut');
 
 });
+
+Route::get('dashboard', 'ViewsController@dashboard')->name('dashboard');

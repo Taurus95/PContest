@@ -38,7 +38,7 @@
                     </li>
 
                 </ul>
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav ">
                     @guest
                     <li class="nav-item">
                         <p class="mb-0">
@@ -76,6 +76,14 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>¿Olvidaste tu contraseña?</h5>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#" target="_top" class="btn btn-outline-success btn-sm">{{ __('messages.register') }}</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </li>
@@ -90,7 +98,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">{{ __('messages.updateProfile') }}</a>
 
                             <div class="dropdown-divider"></div>
@@ -109,11 +117,11 @@
         </nav>
 
     </header>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     @yield('content')
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
     <script src="/js/jquery.fancybox.min.js" charset="utf-8"></script>
     <script src="/js/myjs.js" charset="utf-8"></script>
