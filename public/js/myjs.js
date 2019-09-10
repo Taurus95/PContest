@@ -17,11 +17,3 @@ $(document).ready(function(){
       autoplaySpeed: 4000
     });
 });
-
-$('[data-fancybox]').fancybox({
-	toolbar  : false,
-	smallBtn : true,
-	iframe : {
-		preload : false,
-	}
-})

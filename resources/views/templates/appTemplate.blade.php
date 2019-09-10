@@ -41,10 +41,43 @@
                 <ul class="navbar-nav mr-auto">
                     @guest
                     <li class="nav-item">
-                        <a data-fancybox data-type="iframe" class="nav-link" href="javascript:;"
-                        data-src="{{ route('login') }}"  >
-                            {{ __('messages.login') }}
-                        </a>
+                        <p class="mb-0">
+                            <a data-fancybox data-animation-duration="700" data-src="#animatedModal" href="javascript:;" class="nav-link" id="loginDisplay">{{ __('messages.login') }}</a>
+                        </p>
+                        <div style="display: none;" id="animatedModal" class="animated-modal">
+                            <div class="container">
+                                <form class="" action="{{ route('login') }}" method="post" style="padding-top:10px;">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="email"><h3>{{ __('messages.mail') }}</h3>
+                                            @php
+                                                if ($errors->has('noValid')) {
+                                                    echo "<span class='text-danger'>". __("messages.errorLogin") ."</span>";
+                                                }
+                                            @endphp
+                                        </label>
+                                        <input name="email" type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
+                                         id="email" placeholder="{{ __('messages.mail') }}" value="{{ old('email') }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password"><h3>{{ __('messages.password') }}</h3></label>
+                                        <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                                         id="password" placeholder="{{ __('messages.password') }}" value="{{ old('password') }}">
+                                    </div>
+                                    <input class="btn btn-outline-dark btn-lg btn-block" type="submit" name="login" value="{{ __('messages.login') }}">
+                                </form>
+                                <hr>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>¿No estas registrado?</h5>
+                                    </div>
+                                    <div class="col">
+                                        <a href="{{ route('register') }}" target="_top" class="btn btn-outline-success btn-sm">{{ __('messages.register') }}</a>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('messages.register') }}</a>
@@ -62,11 +95,11 @@
 
                             <div class="dropdown-divider"></div>
 
-                                <form action="{{ route('logOut') }}" method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <input class="dropdown-item" type="submit" name="" value="{{ __('messages.logOut') }}">
-                                </form>
+                            <form action="{{ route('logOut') }}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <input class="dropdown-item" type="submit" name="" value="{{ __('messages.logOut') }}">
+                            </form>
 
                         </div>
                     </li>
@@ -85,6 +118,16 @@
     <script src="/js/jquery.fancybox.min.js" charset="utf-8"></script>
     <script src="/js/myjs.js" charset="utf-8"></script>
     <script src="/js/slick.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    @php
+    if ($errors->has('noValid')) {
+        echo '$(document).ready(function(){
+            $("#loginDisplay").click();
+        });';
+    }
+    @endphp
+    </script>
 </body>
 
 </html>
