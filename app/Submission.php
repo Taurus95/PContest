@@ -39,4 +39,12 @@ class Submission extends Model
     {
         return $this->belongsTo('App\User','id_user');
     }
+
+    /**
+     * Get the submission
+     */
+    public function photography()
+    {
+        return $this->hasOne('App\Photography', 'id_submission');
+    }
 }
