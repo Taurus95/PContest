@@ -21,6 +21,7 @@ Route::group(['middleware' => ['web']], function () {
     //actions
     Route::post('register', 'MainController@registerNew')->name('registerNew');
     Route::post('login', 'MainController@logIn')->name('login');
+    Route::post('changeLang', 'MainController@changeLang')->name('changeLang');
     Route::delete('logOut', 'MainController@logOut')->name('logOut');
 
 });

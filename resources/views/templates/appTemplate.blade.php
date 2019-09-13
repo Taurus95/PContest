@@ -90,6 +90,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('messages.register') }}</a>
                     </li>
+                    <li class="nav-item">
+                        @if (Lang::locale() == "es")
+                            <form id="lang" class="" action="{{ route('changeLang') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="lang" value="en">
+                                <a class="nav-link" href="#" onclick="submitChangeLang();" >English</a>
+                            </form>
+                        @else
+                            <form id="lang"  class="" action="{{ route('changeLang') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="lang" value="es">
+                                <a class="nav-link"  href="#" onclick="submitChangeLang();">Español</a>
+                            </form>
+                        @endif
+
+                    </li>
                     @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{  route('dashboard') }}">{{ __('messages.home') }}</a>
@@ -110,6 +126,22 @@
                             </form>
 
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        @if (Lang::locale() == "es")
+                            <form id="lang" class="" action="{{ route('changeLang') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="lang" value="en">
+                                <a class="nav-link" href="#" onclick="submitChangeLang();" >English</a>
+                            </form>
+                        @else
+                            <form id="lang"  class="" action="{{ route('changeLang') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="lang" value="es">
+                                <a class="nav-link"  href="#" onclick="submitChangeLang();">Español</a>
+                            </form>
+                        @endif
+
                     </li>
                     @endguest
                 </ul>

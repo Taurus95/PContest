@@ -64,4 +64,13 @@ class MainController extends Controller
         $request->session()->regenerate();
         return redirect()->route('index');
     }
+
+    /**
+     * change language
+     */
+    public function changeLang(Request $request)
+    {
+        session(['lang' => $request->lang ]);
+        return redirect()->route('index');
+    }
 }

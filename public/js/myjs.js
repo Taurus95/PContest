@@ -17,3 +17,7 @@ $(document).ready(function(){
       autoplaySpeed: 4000
     });
 });
+
+function submitChangeLang(){
+    $("#lang").submit();
+}
