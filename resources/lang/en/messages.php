@@ -28,6 +28,16 @@ return [
     'home' => 'My home',
     'updateProfile' => 'Update my profile',
     'logOut' => 'Log out',
-    'errorLogin' => 'The data does not match with our source'
+    'errorLogin' => 'The data does not match with our source',
+    'registered?' => 'Are you sing in?',
+    'forgotPass?' => 'Did you forget your pass?',
+    'submitYourPicture' => 'Submit your picture here!',
+    'title' => 'Title',
+    'description' => 'Description',
+    'category' => 'Category',
+    'tag' => 'Tags',
+    'selectImage' => 'Select your picture, JPGE o JPG , between 1 y 5 MB',
+    'close' => 'Close',
+    'submitPic' => 'Submit picture',
 
 ];

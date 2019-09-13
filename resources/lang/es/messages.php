@@ -28,5 +28,16 @@ return [
     'home' => 'Mi panel',
     'updateProfile' => 'Actualizar perfil',
     'logOut' => 'Cerrar Sesion',
-    'errorLogin' => 'Error, los datos no coinciden con nuestros registros'
+    'errorLogin' => 'Error, los datos no coinciden con nuestros registros',
+    'registered?' => '¿No estas registrado?',
+    'forgotPass?' => '¿Olvidaste tu contraseña?',
+    'submitYourPicture' => 'Sube tu fotografia aqui!',
+    'title' => 'Titulo',
+    'description' => 'Descripcion',
+    'category' => 'Categoria',
+    'tag' => 'Etiquetas',
+    'selectImage' => 'Selecciona tu imagen, JPGE o JPG , entre 1 y 5 MB',
+    'close' => 'Cerrar',
+    'submitPic' => 'Subir fotografia',
+
 ];

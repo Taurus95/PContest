@@ -69,7 +69,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col">
-                                        <h5>¿No estas registrado?</h5>
+                                        <h5>{{ __('messages.registered?') }}</h5>
                                     </div>
                                     <div class="col">
                                         <a href="{{ route('register') }}" target="_top" class="btn btn-outline-success btn-sm">{{ __('messages.register') }}</a>
@@ -78,7 +78,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col">
-                                        <h5>¿Olvidaste tu contraseña?</h5>
+                                        <h5>{{ __('messages.forgotPass?') }}</h5>
                                     </div>
                                     <div class="col">
                                         <a href="#" target="_top" class="btn btn-outline-success btn-sm">{{ __('messages.register') }}</a>
