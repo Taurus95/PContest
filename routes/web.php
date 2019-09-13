@@ -17,7 +17,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'ViewsController@index')->name('index');
     Route::get('login', 'ViewsController@login')->name('login');
     Route::get('register', 'ViewsController@register')->name('register');
-    Route::get('dashboard', 'ViewsController@dashboard')->name('dashboard');
     //actions
     Route::post('register', 'MainController@registerNew')->name('registerNew');
     Route::post('login', 'MainController@logIn')->name('login');
@@ -26,4 +25,9 @@ Route::group(['middleware' => ['web']], function () {
 
 });
 
-Route::get('dashboard', 'ViewsController@dashboard')->name('dashboard');
+Route::group(['middleware' => ['webAuth']], function () {
+    //views
+    Route::get('dashboard', 'ViewsController@dashboard')->name('dashboard');
+    //actions
+
+});
