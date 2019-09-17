@@ -14,10 +14,13 @@ h1 {
     font-size: 40px;
     font-family: 'Gloria Hallelujah', cursive;
 }
-
+.dropImage{
+    height: 15px;
+    width: 15px;
+}
 .icon-plus{
     max-width: 200px;
-    max-height: 200px;  
+    max-height: 200px;
 }
 
 .dash{

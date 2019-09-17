@@ -25,45 +25,55 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p><label style="color:red;">*</label> Necesaries</p>
                                 <div class="container-fluid">
                                     <form>
                                         <div class="form-group">
-                                            <label for="titulo">{{ __('messages.title') }}</label><label style="color:red;">*</label>
-                                            <input type="text" class="form-control" id="titulo" placeholder="">
+                                            <label for="title">{{ __('messages.title') }}</label><label style="color:red;">*</label>
+                                            <input type="text" class="form-control" id="title" placeholder="" name="title">
                                         </div>
                                         <div class="form-group">
-                                            <label for="descripcion">{{ __('messages.description') }}</label><label style="color:red;">*</label>
-                                            <textarea class="form-control" id="descripcion" rows="3"></textarea>
+                                            <label for="description">{{ __('messages.description') }}</label><label style="color:red;">*</label>
+                                            <textarea class="form-control" id="description" rows="3" name="description"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="category">{{ __('messages.category') }}</label><label style="color:red;">*</label>
                                             <select class="form-control" id="category" name="category">
                                                 @isset($categories)
-                                                @foreach ($categories as $cat)
-                                                @php
-                                                echo "<option value='".$cat->id."'>".$cat->name."</option>";
-                                                @endphp
-                                                @endforeach
+                                                    @foreach ($categories as $cat)
+                                                        @php
+                                                            echo "<option value='".$cat->id."'>".$cat->name."</option>";
+                                                        @endphp
+                                                    @endforeach
                                                 @endisset
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlSelect2">{{ __('messages.tag') }}</label>
-                                            <select multiple class="form-control" id="exampleFormControlSelect2">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="tagSearch">{{ __('messages.tag') }}</label>
+                                                    <div class="input-group mb-3">
+                                                        <input id="tagSearch" type="text" class="form-control" placeholder="Type tags" aria-describedby="button-addon2" lang="es">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="addTag();">Add</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="tags">{{ __('messages.tag') }}</label>
+                                                <ul id="tags" style="list-style: none;">
+                                                </ul>
+                                            </div>
                                         </div>
+
                                         <div class="form-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                                                 <label class="custom-file-label" for="inputGroupFile01">{{ __('messages.selectImage') }}</label>
                                             </div>
                                         </div>
+
                                     </form>
                                 </div>
                             </div>

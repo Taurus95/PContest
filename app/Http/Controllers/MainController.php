@@ -71,6 +71,6 @@ class MainController extends Controller
     public function changeLang(Request $request)
     {
         session(['lang' => $request->lang ]);
-        return redirect()->route('index');
+        return redirect()->back();
     }
 }
