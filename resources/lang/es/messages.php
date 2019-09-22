@@ -39,5 +39,7 @@ return [
     'selectImage' => 'Selecciona tu imagen, JPGE o JPG , entre 1 y 5 MB',
     'close' => 'Cerrar',
     'submitPic' => 'Subir fotografia',
+    'add' => 'Agregar',
+    'typetag' => 'Escribe alguna etiqueta'
 
 ];

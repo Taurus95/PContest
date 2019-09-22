@@ -53,9 +53,9 @@
                                                 <div class="form-group">
                                                     <label for="tagSearch">{{ __('messages.tag') }}</label>
                                                     <div class="input-group mb-3">
-                                                        <input id="tagSearch" type="text" class="form-control" placeholder="Type tags" aria-describedby="button-addon2" lang="es">
+                                                        <input id="tagSearch" type="text" class="form-control" placeholder="{{ __('messages.typetag') }}" aria-describedby="button-addon2" lang="es">
                                                         <div class="input-group-append">
-                                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="addTag();">Add</button>
+                                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="addTag();">{{ __('messages.add') }}</button>
                                                         </div>
                                                     </div>
                                                 </div>

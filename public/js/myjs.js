@@ -19,17 +19,6 @@ $(document).ready(function(){
 
 });
 
-function selectIngredient(select)
-{
-  var $ul = $(select).prev('ul');
-
-  if ($ul.find('input[value=' + $(select).val() + ']').length == 0)
-    $ul.append('<li onclick="$(this).remove();">' +
-      '<input type="hidden" name="ingredients[]" value="' +
-      $(select).val() + '" /> ' +
-      $(select).find('option[selected]').text() + '</li>');
-}
-
 function submitChangeLang(){
     $("#lang").submit();
 }

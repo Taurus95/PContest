@@ -39,5 +39,7 @@ return [
     'selectImage' => 'Select your picture, JPGE o JPG , between 1 y 5 MB',
     'close' => 'Close',
     'submitPic' => 'Submit picture',
+    'add' => 'Add',
+    'typetag' => 'Type some tags'
 
 ];
