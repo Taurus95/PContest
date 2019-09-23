@@ -17,6 +17,34 @@ $(document).ready(function(){
       autoplaySpeed: 4000
     });
 
+    $('#tagSearch').keypress(function(){
+        if($('#tagSearch').val().length == 1){
+            alert("con 1");
+
+            var datos_enviados = {
+                'letter': $("#tagSearch").val()
+            }
+
+            var request = $.ajax({
+                url: "",
+                method: "POST",
+                data: datos_enviados,
+                contentType: "application/x-www-form-urlencoded"
+            });
+
+
+            request.done(function(data) {
+
+            });
+
+            request.fail(function(jqxhr, textStatus, exception) {
+                alert("Hubo un error: " + textStatus + exception + $("select[name=Region]").val());
+            });
+        }
+    }
+);
+
+
 });
 
 function submitChangeLang(){

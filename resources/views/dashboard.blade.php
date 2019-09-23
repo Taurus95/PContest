@@ -39,11 +39,11 @@
                                             <label for="category">{{ __('messages.category') }}</label><label style="color:red;">*</label>
                                             <select class="form-control" id="category" name="category">
                                                 @isset($categories)
-                                                    @foreach ($categories as $cat)
-                                                        @php
-                                                            echo "<option value='".$cat->id."'>".$cat->name."</option>";
-                                                        @endphp
-                                                    @endforeach
+                                                @foreach ($categories as $cat)
+                                                @php
+                                                echo "<option value='".$cat->id."'>".$cat->name."</option>";
+                                                @endphp
+                                                @endforeach
                                                 @endisset
                                             </select>
                                         </div>
@@ -53,7 +53,11 @@
                                                 <div class="form-group">
                                                     <label for="tagSearch">{{ __('messages.tag') }}</label>
                                                     <div class="input-group mb-3">
-                                                        <input id="tagSearch" type="text" class="form-control" placeholder="{{ __('messages.typetag') }}" aria-describedby="button-addon2" lang="es">
+                                                        <input id="tagSearch" list="suggestions" class="form-control"
+                                                        placeholder="{{ __('messages.typetag') }}" aria-describedby="button-addon2" lang="es" >
+                                                        <datalist id="suggestions">
+                                                            <option value="Black">
+                                                        </datalist>
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="addTag();">{{ __('messages.add') }}</button>
                                                         </div>
