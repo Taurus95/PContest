@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Tag;
 
 class MainController extends Controller
 {
@@ -72,5 +73,15 @@ class MainController extends Controller
     {
         session(['lang' => $request->lang ]);
         return redirect()->back();
+    }
+
+    /**
+     * get tags with letter
+     */
+    public function getTags(Request $request)
+    {
+        $letter = $request->letter;
+        $tags = Tag::where('name','like', $letter.'%')->get();
+        return $tags;
     }
 }

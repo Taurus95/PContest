@@ -18,22 +18,22 @@ $(document).ready(function(){
     });
 
     $('#tagSearch').keypress(function(){
-        if($('#tagSearch').val().length == 1){
-            alert("con 1");
 
-            var datos_enviados = {
-                'letter': $("#tagSearch").val()
-            }
+        if($('#tagSearch').val().length > 2){
+
+            $('#suggestions').empty();
 
             var request = $.ajax({
-                url: "",
-                method: "POST",
-                data: datos_enviados,
+                url: "http://127.0.0.1:8000/tags?letter=" +  $("#tagSearch").val().toUpperCase(),
+                method: "GET",
                 contentType: "application/x-www-form-urlencoded"
             });
 
-
             request.done(function(data) {
+
+                data.forEach(function(entry){
+                    $('#suggestions').append("<option value='"+ entry.name +"'>");
+                });
 
             });
 
@@ -41,6 +41,8 @@ $(document).ready(function(){
                 alert("Hubo un error: " + textStatus + exception + $("select[name=Region]").val());
             });
         }
+
+        $('#tagSearch').focus();
     }
 );
 
