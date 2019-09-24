@@ -17,9 +17,9 @@ $(document).ready(function(){
       autoplaySpeed: 4000
     });
 
-    $('#tagSearch').keypress(function(){
+    $('#tagSearch').keyup(function(){
 
-        if($('#tagSearch').val().length > 2){
+        if($('#tagSearch').val().length == 1){
 
             $('#suggestions').empty();
 
@@ -38,11 +38,9 @@ $(document).ready(function(){
             });
 
             request.fail(function(jqxhr, textStatus, exception) {
-                alert("Hubo un error: " + textStatus + exception + $("select[name=Region]").val());
+                alert("buscador no funcionando: " + textStatus + exception );
             });
         }
-
-        $('#tagSearch').focus();
     }
 );
 
