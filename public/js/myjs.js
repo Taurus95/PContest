@@ -10,11 +10,16 @@ $(window).bind('scroll', function() {
     }
 })
 $(document).ready(function(){
+
     $('.home-carrousel').slick({
       slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 4000
+    });
+
+    $('#submitPic').click(function(){
+        $("#submitPhoto").submit();
     });
 
     $('#tagSearch').keyup(function(){
@@ -54,7 +59,7 @@ function submitChangeLang(){
 function addTag(){
 
     if($('#tagSearch').val() != ""){
-        $("#tags").append("<li style=' display: inline;' onclick='this.parentNode.removeChild(this);'> <input type='hidden' name='ingredients[]' value='"+ $('#tagSearch').val() +"' /> "+ $('#tagSearch').val() +"<img class='dropImage' src='img/x-button.png' alt=''> </li>");
+        $("#tags").append("<li style=' display: inline;' onclick='this.parentNode.removeChild(this);'> <input type='hidden' name='tags[]' value='"+ $('#tagSearch').val() +"' /> "+ $('#tagSearch').val() +"<img class='dropImage' src='img/x-button.png' alt=''> </li>");
     }
     $('#tagSearch').val("");
     $('#tagSearch').focus();

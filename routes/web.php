@@ -17,12 +17,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'ViewsController@index')->name('index');
     Route::get('login', 'ViewsController@login')->name('login');
     Route::get('register', 'ViewsController@register')->name('register');
-    Route::get('tags', 'MainController@getTags')->name('tags');
+
     //actions
+    Route::get('tags', 'MainController@getTags')->name('tags');
     Route::post('register', 'MainController@registerNew')->name('registerNew');
     Route::post('login', 'MainController@logIn')->name('login');
     Route::post('changeLang', 'MainController@changeLang')->name('changeLang');
     Route::delete('logOut', 'MainController@logOut')->name('logOut');
+    Route::post('submitPhoto', 'MainController@submitPhoto')->name('submitPhoto');
 
 });
 

@@ -42,7 +42,7 @@
                     @guest
                     <li class="nav-item">
                         <p class="mb-0">
-                            <a data-fancybox data-animation-duration="700" data-src="#animatedModal" href="javascript:;" class="nav-link" id="loginDisplay">{{ __('messages.login') }}</a>
+                            <a data-fancybox data-animation-duration="700" data-src="#animatedModal" href="javascript:;" class="nav-link display" id="loginDisplay">{{ __('messages.login') }}</a>
                         </p>
                         <div style="display: none;" id="animatedModal" class="animated-modal">
                             <div class="container">
@@ -161,9 +161,9 @@
 
     <script type="text/javascript">
     @php
-    if ($errors->has('noValid')) {
+    if ($errors->any()) {
         echo '$(document).ready(function(){
-            $("#loginDisplay").click();
+            $(".display").click();
         });';
     }
     @endphp

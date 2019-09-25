@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Tag;
+use App\Submission;
+use App\Photography;
+use App\PhotoTag;
 
 class MainController extends Controller
 {
@@ -80,8 +84,48 @@ class MainController extends Controller
      */
     public function getTags(Request $request)
     {
+        $request->validate([
+            'letter' => 'string|max:5'
+        ]);
         $letter = $request->letter;
-        $tags = Tag::where('name','like', $letter.'%')->get();
+        $tags = Tag::where('name', 'like', $letter.'%')->get();
         return $tags;
+    }
+
+    /**
+     * get tags with letter
+     */
+    public function submitPhoto(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|string|max:30',
+            'description' => 'required|string|max:200',
+            'category' => 'required',
+            'photo' => 'required|image'
+        ]);
+
+        //create the new submission
+        $newSubmission = new Submission;
+        $newSubmission->estado = "P";
+        $newSubmission->id_user = Auth::id();
+        $newSubmission->save();
+        $idSubmission = $newSubmission->id;
+
+        //create the new photography
+        $newPhoto = new Photography;
+        $newPhoto->image = Storage::putFile('photos', $request->photo);
+        $newPhoto->name = $request->name;
+        $newPhoto->description = $request->description;
+        $newPhoto->id_submission=$idSubmission;
+        $newPhoto->id_category = $request->category;
+        $newPhoto->save();
+        $idPhoto = $newPhoto->id;
+
+        //add the tags
+        foreach ($request->tags as $tag) {
+            // code...
+        }
+
     }
 }
