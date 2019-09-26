@@ -97,9 +97,8 @@ class MainController extends Controller
      */
     public function submitPhoto(Request $request)
     {
-
         $request->validate([
-            'name' => 'required|string|max:30',
+            'title' => 'required|string|max:30',
             'description' => 'required|string|max:200',
             'category' => 'required',
             'photo' => 'required|image'
@@ -123,9 +122,12 @@ class MainController extends Controller
         $idPhoto = $newPhoto->id;
 
         //add the tags
-        foreach ($request->tags as $tag) {
-            // code...
+        if($request->tags != null){
+            foreach ($request->tags as $tag) {
+                // code...
+            }
         }
+
 
     }
 }

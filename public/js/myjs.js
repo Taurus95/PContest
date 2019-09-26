@@ -22,8 +22,10 @@ $(document).ready(function(){
         $("#submitPhoto").submit();
     });
 
-    $('#tagSearch').keyup(function(){
-
+    $('#tagSearch').keyup(function(e){
+        if(e.which == 13) {
+            $('#enterTag').click();
+        }
         if($('#tagSearch').val().length == 1){
 
             $('#suggestions').empty();

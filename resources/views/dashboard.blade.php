@@ -13,7 +13,7 @@
                 @if (count($submissions) > 0)
                 {{-- las listo --}}
                 @else
-                <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg" ><img class="icon-plus" src="/img/add.png" alt="submit a picture"></a>
+                <a href="#" class="display" data-toggle="modal" data-target=".bd-example-modal-lg" ><img class="icon-plus" src="/img/add.png" alt="submit a picture"></a>
                 <p>{{ __('messages.submitYourPicture') }}</p>
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -26,19 +26,30 @@
                             </div>
                             <div class="modal-body">
                                 <div class="container-fluid">
+                                    @if($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                {{ $error }}
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        @endforeach
+                                    @endif
+
                                     <form id="submitPhoto" action="{{ route('submitPhoto') }}" method="post" enctype=multipart/form-data>
                                         @csrf
                                         <div class="form-group">
                                             <label for="title">{{ __('messages.title') }}</label><label style="color:red;">*</label>
-                                            <input type="text" class="form-control" id="title" placeholder="" name="title">
+                                            <input type="text" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title" placeholder="" name="title">
                                         </div>
                                         <div class="form-group">
                                             <label for="description">{{ __('messages.description') }}</label><label style="color:red;">*</label>
-                                            <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                                            <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" id="description" rows="3" name="description"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="category">{{ __('messages.category') }}</label><label style="color:red;">*</label>
-                                            <select class="form-control" id="category" name="category">
+                                            <select class="form-control {{ $errors->has('category') ? 'is-invalid' : '' }}" id="category" name="category">
                                                 @isset($categories)
                                                 @foreach ($categories as $cat)
                                                 @php
@@ -55,12 +66,12 @@
                                                     <label for="tagSearch">{{ __('messages.tag') }}</label>
                                                     <div class="input-group mb-3">
                                                         <input id="tagSearch" list="suggestions" class="form-control"
-                                                        placeholder="{{ __('messages.typetag') }}" aria-describedby="button-addon2" lang="es" >
+                                                        placeholder="{{ __('messages.typetag') }}" aria-describedby="enterTag" lang="es" >
                                                         <datalist id="suggestions">
                                                             <option value="Black">
                                                         </datalist>
                                                         <div class="input-group-append">
-                                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="addTag();">{{ __('messages.add') }}</button>
+                                                            <button class="btn btn-outline-secondary" type="button" id="enterTag" onclick="addTag();">{{ __('messages.add') }}</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -74,11 +85,10 @@
 
                                         <div class="form-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="photo">
+                                                <input type="file" class="custom-file-input {{ $errors->has('photo') ? 'is-invalid' : '' }}" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="photo">
                                                 <label class="custom-file-label" for="inputGroupFile01">{{ __('messages.selectImage') }}</label>
                                             </div>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
