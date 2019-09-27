@@ -41,11 +41,13 @@
                                         @csrf
                                         <div class="form-group">
                                             <label for="title">{{ __('messages.title') }}</label><label style="color:red;">*</label>
-                                            <input type="text" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title" placeholder="" name="title">
+                                            <input type="text" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" id="title" placeholder="" name="title"
+                                            value="{{ old('title') }}" >
                                         </div>
                                         <div class="form-group">
                                             <label for="description">{{ __('messages.description') }}</label><label style="color:red;">*</label>
-                                            <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" id="description" rows="3" name="description"></textarea>
+                                            <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" id="description" rows="3" name="description"
+                                            >{{ old('description') }}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="category">{{ __('messages.category') }}</label><label style="color:red;">*</label>
@@ -79,6 +81,15 @@
                                             <div class="col-6">
                                                 <label for="tags">{{ __('messages.tag') }}</label>
                                                 <ul id="tags" style="list-style: none;">
+                                                    @if(old('tags') != null)
+
+                                                        @foreach (old('tags') as $tag)
+                                                            <li style=" display: inline;" onclick="this.parentNode.removeChild(this);">
+                                                                <input name="tags[]" value="{{ $tag }}" type="hidden">{{ $tag }} <img class="dropImage" src="img/x-button.png" alt="">
+                                                            </li>
+                                                        @endforeach
+
+                                                    @endif
                                                 </ul>
                                             </div>
                                         </div>
@@ -115,4 +126,5 @@
         $("#MainNav").addClass('bg-dark');
     });
 </script>
+
 @endsection
