@@ -113,8 +113,8 @@ class MainController extends Controller
 
         //create the new photography
         $newPhoto = new Photography;
-        $newPhoto->image = Storage::putFile('photos', $request->photo);
-        $newPhoto->name = $request->name;
+        $newPhoto->image = Storage::putFile('public/photos', $request->photo, 'public');
+        $newPhoto->name = $request->title;
         $newPhoto->description = $request->description;
         $newPhoto->id_submission=$idSubmission;
         $newPhoto->id_category = $request->category;
@@ -124,7 +124,11 @@ class MainController extends Controller
         //add the tags
         if($request->tags != null){
             foreach ($request->tags as $tag) {
-                // code...
+                $tag = Tag::firstOrCreate(['name' => $tag], ['description' => 'agregado']);
+                $newPT = new PhotoTag;
+                $newPT->id_photography = $idPhoto;
+                $newPT->id_tag = $tag->id;
+                $newPT->save();
             }
         }
 

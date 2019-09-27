@@ -53,11 +53,15 @@
                                             <label for="category">{{ __('messages.category') }}</label><label style="color:red;">*</label>
                                             <select class="form-control {{ $errors->has('category') ? 'is-invalid' : '' }}" id="category" name="category">
                                                 @isset($categories)
-                                                @foreach ($categories as $cat)
-                                                @php
-                                                echo "<option value='".$cat->id."'>".$cat->name."</option>";
-                                                @endphp
-                                                @endforeach
+                                                    @foreach ($categories as $cat)
+                                                        @php
+                                                            if(old('category') != null && old('category') == $cat->id){
+                                                                echo "<option value='".$cat->id."' selected >".$cat->name."</option>";
+                                                            }else{
+                                                                echo "<option value='".$cat->id."' >".$cat->name."</option>";
+                                                            }
+                                                        @endphp
+                                                    @endforeach
                                                 @endisset
                                             </select>
                                         </div>
@@ -96,7 +100,7 @@
 
                                         <div class="form-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input {{ $errors->has('photo') ? 'is-invalid' : '' }}" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="photo">
+                                                <input type="file" class="custo$cat->idm-file-input {{ $errors->has('photo') ? 'is-invalid' : '' }}" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="photo">
                                                 <label class="custom-file-label" for="inputGroupFile01">{{ __('messages.selectImage') }}</label>
                                             </div>
                                         </div>
