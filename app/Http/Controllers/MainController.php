@@ -131,7 +131,7 @@ class MainController extends Controller
                 $newPT->save();
             }
         }
-        return redirect()->back()->with('message' , 'Agregado');
+        return redirect()->back()->with(['message' => ['type' => 's','content' => 'Agregado Correctamente!']]);
 
     }
 }

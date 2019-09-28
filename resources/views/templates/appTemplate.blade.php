@@ -49,20 +49,21 @@
                                 <form class="" action="{{ route('login') }}" method="post" style="padding-top:10px;">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="email"><h3>{{ __('messages.mail') }}</h3>
+                                        <label for="email">
+                                            <h3>{{ __('messages.mail') }}</h3>
                                             @php
-                                                if ($errors->has('noValid')) {
-                                                    echo "<span class='text-danger'>". __("messages.errorLogin") ."</span>";
-                                                }
+                                            if ($errors->has('noValid')) {
+                                            echo "<span class='text-danger'>". __("messages.errorLogin") ."</span>";
+                                            }
                                             @endphp
                                         </label>
-                                        <input name="email" type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                         id="email" placeholder="{{ __('messages.mail') }}" value="{{ old('email') }}">
+                                        <input name="email" type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="email" placeholder="{{ __('messages.mail') }}" value="{{ old('email') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="password"><h3>{{ __('messages.password') }}</h3></label>
-                                        <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                                         id="password" placeholder="{{ __('messages.password') }}" value="{{ old('password') }}">
+                                        <label for="password">
+                                            <h3>{{ __('messages.password') }}</h3>
+                                        </label>
+                                        <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password" placeholder="{{ __('messages.password') }}" value="{{ old('password') }}">
                                     </div>
                                     <input class="btn btn-outline-dark btn-lg btn-block" type="submit" name="login" value="{{ __('messages.login') }}">
                                 </form>
@@ -92,17 +93,17 @@
                     </li>
                     <li class="nav-item">
                         @if (Lang::locale() == "es")
-                            <form id="lang" class="" action="{{ route('changeLang') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="lang" value="en">
-                                <a class="nav-link" href="#" onclick="submitChangeLang();" >English</a>
-                            </form>
+                        <form id="lang" class="" action="{{ route('changeLang') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="lang" value="en">
+                            <a class="nav-link" href="#" onclick="submitChangeLang();">English</a>
+                        </form>
                         @else
-                            <form id="lang"  class="" action="{{ route('changeLang') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="lang" value="es">
-                                <a class="nav-link"  href="#" onclick="submitChangeLang();">Español</a>
-                            </form>
+                        <form id="lang" class="" action="{{ route('changeLang') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="lang" value="es">
+                            <a class="nav-link" href="#" onclick="submitChangeLang();">Español</a>
+                        </form>
                         @endif
 
                     </li>
@@ -129,17 +130,17 @@
                     </li>
                     <li class="nav-item">
                         @if (Lang::locale() == "es")
-                            <form id="lang" class="" action="{{ route('changeLang') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="lang" value="en">
-                                <a class="nav-link" href="#" onclick="submitChangeLang();" >English</a>
-                            </form>
+                        <form id="lang" class="" action="{{ route('changeLang') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="lang" value="en">
+                            <a class="nav-link" href="#" onclick="submitChangeLang();">English</a>
+                        </form>
                         @else
-                            <form id="lang"  class="" action="{{ route('changeLang') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="lang" value="es">
-                                <a class="nav-link"  href="#" onclick="submitChangeLang();">Español</a>
-                            </form>
+                        <form id="lang" class="" action="{{ route('changeLang') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="lang" value="es">
+                            <a class="nav-link" href="#" onclick="submitChangeLang();">Español</a>
+                        </form>
                         @endif
 
                     </li>
@@ -151,6 +152,31 @@
     </header>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    @isset($message)
+        {{$message}}
+        @if ($message->type == "w")
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{$message->content}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @elseif($message->type == "i")
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                {{$message->content}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @elseif($message->type == "s")
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{$message->content}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+    @endisset
 
     @yield('content')
 
@@ -160,13 +186,12 @@
     <script src="/js/slick.min.js" charset="utf-8"></script>
 
     <script type="text/javascript">
-    @php
-    if ($errors->any()) {
-        echo '$(document).ready(function(){
-            $(".display").click();
-        });';
-    }
-    @endphp
+        @php
+            if ($errors->any()) {
+                echo '$(document).ready(function(){
+                $(".display").click();});';
+            }
+        @endphp
     </script>
 </body>
 
