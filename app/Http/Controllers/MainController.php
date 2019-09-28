@@ -113,7 +113,7 @@ class MainController extends Controller
 
         //create the new photography
         $newPhoto = new Photography;
-        $newPhoto->image = Storage::putFile('public/photos', $request->photo, 'public');
+        $newPhoto->image = str_replace("public","storage",Storage::putFile('public/photos', $request->photo, 'public'));
         $newPhoto->name = $request->title;
         $newPhoto->description = $request->description;
         $newPhoto->id_submission=$idSubmission;
@@ -131,7 +131,7 @@ class MainController extends Controller
                 $newPT->save();
             }
         }
-
+        return redirect()->back()->with('message' , 'Agregado');
 
     }
 }
